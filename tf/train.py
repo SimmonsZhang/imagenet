@@ -50,7 +50,7 @@ def train(
 	keep_prob = tf.placeholder(tf.float32)
 
 	# queue of examples being filled on the cpu
-	with tf.device('/cpu:0'):
+	with tf.device('/gpu:0'):
 		q = tf.FIFOQueue(batch_size * 3, [tf.float32, tf.float32], shapes=[[224, 224, 3], [1000]])
 		enqueue_op = q.enqueue_many([x, y])
 
